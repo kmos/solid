@@ -19,16 +19,16 @@ phase for [liquibase](https://liquibase.org/) database change management.
 
 ### alpha release
 
-[X] test update and rollback against mysql database
-[X] move it as a CLI
-[ ] pack it with jreleaser
-[ ] use properly log
-[ ] decouple drivers for license purpose
-[ ] check the changesets are equal to another database
+- [X] test update and rollback against mysql database
+-  [X] move it as a CLI
+-  [ ] pack it with jreleaser
+-  [ ] use properly log
+-  [ ] decouple drivers for license purpose
+-  [ ] check the changesets are equal to another database
 
 ### Bug
-[ ] doesn't work with absolute path
-[ ] doesn't work with ../ path
+- [ ] doesn't work with absolute path
+-  [ ] doesn't work with ../ path
 
 ### Contributors
 
