@@ -8,27 +8,27 @@ phase for [liquibase](https://liquibase.org/) database change management.
 
 ### Supported Engine
 
-[X] MySQL
-[ ] msSQL
-[ ] cassandra
-[ ] postgresql
-[ ] h2
-[ ] derby
-[ ] hsqldb
-[ ] db2
+- [X] MySQL
+-  [ ] msSQL
+-  [ ] cassandra
+-  [ ] postgresql
+-  [ ] h2
+-  [ ] derby
+-  [ ] hsqldb
+-  [ ] db2
 
 ### alpha release
 
 - [X] test update and rollback against mysql database
--  [X] move it as a CLI
--  [ ] pack it with jreleaser
--  [ ] use properly log
--  [ ] decouple drivers for license purpose
--  [ ] check the changesets are equal to another database
+- [X] move it as a CLI
+- [ ] pack it with jreleaser
+- [ ] use properly log
+- [ ] decouple drivers for license purpose
+- [ ] check the changesets are equal to another database
 
 ### Bug
 - [ ] doesn't work with absolute path
--  [ ] doesn't work with ../ path
+- [ ] doesn't work with ../ path
 
 ### Contributors
 
