@@ -1,28 +1,33 @@
 project:
   name: solid
-  version: 1.0.0-SNAPSHOT
-  description: solid
-  longDescription: Awesome App
-  website: https://acme.com/app
+  version: 0.0.1
+  description: solid CLI
+  longDescription: a feature enrichment for liquibase CLI
+  website: https://www.mosfet.io/solid
   authors:
-    - Duke
+    - Giovanni Panice
   license: Apache-2
   java:
     groupId: io.mosfet
-    version: 8
+    version: 11
 
 release:
   github:
-    owner: gpanice
+    owner: kmos
 
 assemble:
   archive:
-    app:
+    solid:
+      formats:
+        - ZIP
+      distributionType: JAVA_BINARY
+      archiveName: solid
       active: ALWAYS
       fileSets:
         - input: '.'
           includes:
-            - 'LICENSE'
-            - 'README'
-        - input: 'target/release'
-          output: 'bin'
+            - 'LICENSE.md'
+            - 'README.md'
+          output: './'
+        - input: 'target/solid'
+          output: './app'

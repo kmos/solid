@@ -153,6 +153,28 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <assembleDirectory>target/solid</assembleDirectory>
+                    <programs>
+                        <program>
+                            <mainClass>io.mosfet.Application</mainClass>
+                            <id>solid</id>
+                        </program>
+                    </programs>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
