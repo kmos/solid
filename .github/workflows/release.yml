@@ -2,6 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: "version to release"
+        required: true
 
 jobs:
   release:
@@ -20,4 +24,5 @@ jobs:
       - name: Run JReleaser
         uses: jreleaser/release-action@v2
         env:
+          JRELEASER_PROJECT_VERSION: ${{ github.event.inputs.version }}
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
