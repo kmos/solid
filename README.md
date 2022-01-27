@@ -33,6 +33,7 @@ phase for [liquibase](https://liquibase.org/) database change management.
 #### release v0.3
 
 - [ ] check the changesets are equal to another database
+- [ ] improve documentation
 
 #### release v0.4
 
