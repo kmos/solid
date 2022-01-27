@@ -25,8 +25,8 @@ phase for [liquibase](https://liquibase.org/) database change management.
 - [X] move it as a CLI
 - [X] pack it with jreleaser
 - [X] setup correctly CI for release
-- [ ] make it work with absolute path
-- [ ] make it work with relative path like ../path
+- [X] make it work with absolute path
+- [X] make it work with relative path like ../path
 - [ ] use properly log with echo
 - [ ] introduce a secondary parameter, use changelog.xml path instead of default
 
