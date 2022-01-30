@@ -5,6 +5,20 @@ phase for [liquibase](https://liquibase.org/) database change management.
 
 ### Usage
 
+```shell
+
+$ solid --help
+Usage: dry-run-clikt [OPTIONS] PATH
+
+Options:
+  -h, --help  Show this message and exit
+
+Arguments:
+  PATH  path for changesets
+
+
+```
+
 ### Supported Engine
 
 - [X] MySQL
@@ -28,13 +42,13 @@ phase for [liquibase](https://liquibase.org/) database change management.
 - [X] make it work with relative path like ../path
 - [X] use properly log with echo
 - [ ] improve documentation
-- [ ] introduce a secondary parameter, use changelog.xml path instead of default
+- [ ] create installation script
 
 #### release v0.3
 
 - [ ] check the changesets are equal to another database
+- [ ] introduce a secondary parameter, use changelog.xml path instead of default
 - [ ] add support for postgres
-- [ ] improve documentation
 
 #### release v0.4
 
