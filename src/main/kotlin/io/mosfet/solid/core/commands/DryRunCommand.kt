@@ -6,11 +6,13 @@ import arrow.core.right
 import io.mosfet.solid.core.SolidParameters
 import io.mosfet.solid.core.configuration.ConfigurationDatabaseChangeLog
 import liquibase.Liquibase
+import liquibase.changelog.visitor.ChangeExecListener
 import liquibase.exception.LiquibaseException
 
 class DryRunCommand(
     private val commandHandler: CommandHandler,
     private val configurationDatabaseChangeLog: ConfigurationDatabaseChangeLog,
+    private val listener: ChangeExecListener,
 ) : Command {
     override fun execute(solidParameters: SolidParameters): Either<CommandError, CommandResult> {
 
@@ -20,6 +22,8 @@ class DryRunCommand(
                 commandHandler.database),
             commandHandler.resourceAccessor,
             commandHandler.database)
+
+        liquibase.setChangeExecListener(listener)
 
         return try {
             liquibase.updateTestingRollback("")

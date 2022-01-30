@@ -1,25 +1,30 @@
 package io.mosfet
 
 import arrow.core.right
+import io.mosfet.solid.core.SolidParameters
+import io.mosfet.solid.core.commands.CommandHandler
 import io.mosfet.solid.core.commands.DryRunCommand
 import io.mosfet.solid.core.commands.MigrationFailed
 import io.mosfet.solid.core.commands.Ok
-import io.mosfet.solid.core.SolidParameters
-import io.mosfet.solid.core.commands.CommandHandler
 import io.mosfet.solid.core.configuration.ConfigurationDatabaseChangeLog
+import io.mosfet.solid.core.listener.ChangeSetListener
 import io.mosfet.solid.db.SolidDataSource
+import liquibase.changelog.visitor.ChangeExecListener
 import liquibase.database.DatabaseFactory
 import liquibase.database.jvm.JdbcConnection
 import liquibase.resource.FileSystemResourceAccessor
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.mockito.Mockito
+import org.mockito.kotlin.verify
 import org.testcontainers.containers.MySQLContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.DockerImageName
 import java.io.File
 import java.util.Properties
+import java.util.logging.LogManager
 
 @Testcontainers
 internal class DryRunCommandTest {
@@ -27,9 +32,11 @@ internal class DryRunCommandTest {
     private lateinit var solidDataSource: SolidDataSource
     private lateinit var commandHandler: CommandHandler
     private lateinit var underTest: DryRunCommand
+    private val changeSetListener = Mockito.mock(ChangeExecListener::class.java)
 
     @BeforeEach
     internal fun setUp() {
+        LogManager.getLogManager().reset()
         assertThat(container.isRunning).isTrue
 
         solidDataSource = SolidDataSource.getInstance(properties(container))
@@ -40,7 +47,7 @@ internal class DryRunCommandTest {
             FileSystemResourceAccessor(File(System.getProperty("user.dir")))
         )
 
-        underTest = DryRunCommand(commandHandler, ConfigurationDatabaseChangeLog())
+        underTest = DryRunCommand(commandHandler, ConfigurationDatabaseChangeLog(), changeSetListener)
     }
 
     @Test
@@ -55,13 +62,13 @@ internal class DryRunCommandTest {
 
         resultSet.next()
 
+
         assertThat(result).isEqualTo(Ok.right())
-        assertThat(resultSet.getInt(1)).isEqualTo(9)
+        assertThat(resultSet.getInt(1)).isEqualTo(5)
     }
 
     @Test
     internal fun `given an environment and a path with broken changeset, when executing a dry-run, return an error`() {
-
         val input = SolidParameters(mapOf("path" to "./src/test/resources/broken_changesets"))
 
         underTest.execute(input)
@@ -72,7 +79,6 @@ internal class DryRunCommandTest {
                     else -> error("unreachable state")
                 }
             }
-
     }
 
     companion object {

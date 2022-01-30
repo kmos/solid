@@ -5,7 +5,6 @@ phase for [liquibase](https://liquibase.org/) database change management.
 
 ### Usage
 
-
 ### Supported Engine
 
 - [X] MySQL
@@ -27,24 +26,20 @@ phase for [liquibase](https://liquibase.org/) database change management.
 - [X] setup correctly CI for release
 - [X] make it work with absolute path
 - [X] make it work with relative path like ../path
-- [ ] use properly log with echo
+- [X] use properly log with echo
+- [ ] improve documentation
 - [ ] introduce a secondary parameter, use changelog.xml path instead of default
 
 #### release v0.3
 
 - [ ] check the changesets are equal to another database
+- [ ] add support for postgres
 - [ ] improve documentation
 
 #### release v0.4
 
 - [ ] decouple drivers for license purpose
 - [ ] remove test container as dependency and use java docker API directly
-
-### Contributors
-
-* **Giovanni Panice** - [mosfet.io](https://mosfet.io)
-
-See also the list of [contributors](CONTRIBUTORS.md) who participated in this project.
 
 ### License
 
