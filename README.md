@@ -5,6 +5,19 @@ phase for [liquibase](https://liquibase.org/) database change management.
 
 ### Usage
 
+```shell
+
+$ solid --help
+Usage: dry-run-clikt [OPTIONS] PATH
+
+Options:
+  -h, --help  Show this message and exit
+
+Arguments:
+  PATH  path for changesets
+
+
+```
 
 ### Supported Engine
 
@@ -27,24 +40,20 @@ phase for [liquibase](https://liquibase.org/) database change management.
 - [X] setup correctly CI for release
 - [X] make it work with absolute path
 - [X] make it work with relative path like ../path
-- [ ] use properly log with echo
-- [ ] introduce a secondary parameter, use changelog.xml path instead of default
+- [X] use properly log with echo
+- [ ] improve documentation
+- [ ] create installation script
 
 #### release v0.3
 
 - [ ] check the changesets are equal to another database
-- [ ] improve documentation
+- [ ] introduce a secondary parameter, use changelog.xml path instead of default
+- [ ] add support for postgres
 
 #### release v0.4
 
 - [ ] decouple drivers for license purpose
 - [ ] remove test container as dependency and use java docker API directly
-
-### Contributors
-
-* **Giovanni Panice** - [mosfet.io](https://mosfet.io)
-
-See also the list of [contributors](CONTRIBUTORS.md) who participated in this project.
 
 ### License
 
