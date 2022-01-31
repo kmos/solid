@@ -12,6 +12,7 @@ import io.mosfet.solid.core.listener.ChangeSetListener
 import io.mosfet.solid.core.parser.DefaultParser
 import io.mosfet.solid.env.MySQLSolidContainer
 import io.mosfet.solid.logger.EchoLogger
+import io.mosfet.solid.validator.CheckInputPath
 import liquibase.resource.FileSystemResourceAccessor
 import java.io.File
 
@@ -21,8 +22,11 @@ class DryRunCliktCommand : CliktCommand() {
     val path: String by argument(help="path for changesets")
 
     override fun run() {
+        CheckInputPath().check(path)
+            ?.let { throw it }
 
         Setup().execute()
+
         val solidPath = DefaultParser(path).parse()
 
         val command = DryRunCommand(
@@ -33,9 +37,7 @@ class DryRunCliktCommand : CliktCommand() {
             ChangeSetListener { logger.handle(it) }
         )
 
-        val result = command.execute(SolidParameters(mapOf("path" to solidPath.relative)))
-
-        when (result) {
+        when (command.execute(SolidParameters(mapOf("path" to solidPath.relative)))) {
             is Either.Left -> PrintMessage("Impossible to execute a dry-run with, please check input value.")
             is Either.Right -> echo("dry-run completed.")
         }
