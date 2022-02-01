@@ -1,3 +1,7 @@
+environment:
+  properties:
+    artifactsDir: out/jreleaser/assemble/solid/archive
+
 project:
   name: solid
   version: 0.0.1
@@ -16,6 +20,7 @@ release:
     owner: kmos
 
 assemble:
+  enabled: true
   archive:
     solid:
       formats:

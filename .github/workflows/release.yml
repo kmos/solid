@@ -21,7 +21,14 @@ jobs:
           distribution: 'adopt'
       - name: package
         run: mvn --batch-mode --update-snapshots package
-      - name: Run JReleaser
+      - name: assemble
+        uses: jreleaser/release-action@v2
+        with:
+          arguments: assemble
+        env:
+          JRELEASER_PROJECT_VERSION: ${{ github.event.inputs.version }}
+          JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: release
         uses: jreleaser/release-action@v2
         env:
           JRELEASER_PROJECT_VERSION: ${{ github.event.inputs.version }}
