@@ -4,7 +4,7 @@ set -e
 
 USER=${USER:-$(id -u -n)}
 # Default settings
-VERSION=LATEST
+VERSION=0.0.2
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
