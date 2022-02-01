@@ -1,7 +1,20 @@
 # solid
 
-a CLI that tries to cover a [`dry-run`](https://stackoverflow.com/questions/21847482/does-liquibase-support-dry-run) 
+a CLI that tries to cover a [`dry-run`](https://stackoverflow.com/questions/21847482/does-liquibase-support-dry-run)
 phase for [liquibase](https://liquibase.org/) database change management.
+
+### Installation
+
+Solid is installed by running one of the following commands in your terminal. You can install this via the command-line
+with either ```curl```, ```wget``` or another similar tool.
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/solid/master/tools/install.sh)"
+
+# or
+
+sh -c "$(wget -O- https://raw.githubusercontent.com/solid/master/tools/install.sh)"
+```
 
 ### Usage
 
