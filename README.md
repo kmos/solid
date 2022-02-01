@@ -10,9 +10,9 @@ with either ```curl```, ```wget``` or another similar tool.
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/solid/master/tools/install.sh)"
-
-# or
-
+```
+or
+```shell
 sh -c "$(wget -O- https://raw.githubusercontent.com/solid/master/tools/install.sh)"
 ```
 
