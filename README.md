@@ -54,11 +54,11 @@ Arguments:
 - [X] make it work with absolute path
 - [X] make it work with relative path like ../path
 - [X] use properly log with echo
-- [ ] improve documentation
-- [ ] create installation script
+- [X] create installation script
 
 #### release v0.3
 
+- [ ] improve documentation
 - [ ] check the changesets are equal to another database
 - [ ] introduce a secondary parameter, use changelog.xml path instead of default
 - [ ] add support for postgres
