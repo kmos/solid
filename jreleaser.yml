@@ -4,7 +4,6 @@ environment:
 
 project:
   name: solid
-  version: 0.0.1
   description: solid CLI
   longDescription: a feature enrichment for liquibase CLI
   website: https://www.mosfet.io/solid
