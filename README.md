@@ -9,11 +9,11 @@ Solid is installed by running one of the following commands in your terminal. Yo
 with either ```curl```, ```wget``` or another similar tool.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/solid/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/kmos/solid/master/tools/install.sh)"
 ```
 or
 ```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/solid/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/kmos/solid/master/tools/install.sh)"
 ```
 
 ### Usage
