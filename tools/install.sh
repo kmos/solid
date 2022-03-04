@@ -55,7 +55,7 @@ setup_solid() {
       exit 1
     }
 
-    curl -L https://github.com/kmos/solid/releases/download/${VERSION}/solid.zip > ~/solid.zip
+    curl -L https://github.com/kmos/solid/releases/download/v${VERSION}/solid.zip > ~/solid.zip
     unzip ~/solid.zip -d ~/
     mv ~/solid ~/.solid
     rm ~/solid.zip
