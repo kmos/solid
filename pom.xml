@@ -17,7 +17,7 @@
         <kotlin.version>1.6.0</kotlin.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <mysql-connector.version>8.0.27</mysql-connector.version>
-        <liquibase.version>4.6.2</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
         <hikari.version>5.0.1</hikari.version>
         <arrow.version>1.0.0</arrow.version>
         <logback.version>1.2.10</logback.version>
