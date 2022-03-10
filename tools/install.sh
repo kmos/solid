@@ -69,7 +69,7 @@ main() {
 
   setup_color
   setup_solid
-  create_symlink
+  #create_symlink
 
   echo "Installation completed..."
 
